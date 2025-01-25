@@ -25,7 +25,7 @@ Explore my portfolio and projects by clicking through the side bar.
 Feel free to open an issue or create a pull request if you have suggestions or improvements!
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ## Contact
 You can reach me at [pkireri@gmail.com] or connect with me on [LinkedIn](https://www.linkedin.com/in/pravinireri).
