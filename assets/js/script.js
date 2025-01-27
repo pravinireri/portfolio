@@ -1,29 +1,55 @@
-/* Icon Effect */
+/* Fade-in Effect */
 
-const icons = document.querySelectorAll('.icon');
+const observerOptions = {
+  threshold: 0.2,
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    } else {
+      entry.target.classList.remove('active');
+    }
+  });
+}, observerOptions);
+
+
 const sections = document.querySelectorAll('.section');
+sections.forEach((section) => {
+  observer.observe(section);
+});
 
+
+/* Scroll Effect */
+
+
+const icons = document.querySelectorAll('.nav-icon');
+
+const navIcons = Array.from(icons).slice(0, -1); 
 let lastIndex = -1;
 
 function updateActiveIcon() {
   let index = sections.length - 1;
 
-  while (index >= 0 && window.scrollY < sections[index].offsetTop - 50) {
+  while (index >= 0 && window.scrollY + window.innerHeight / 2 < sections[index].offsetTop) {
     index--;
   }
 
   if (index !== lastIndex) {
-    icons[lastIndex]?.classList.remove('active');
-    icons[index]?.classList.add('active');
+    navIcons[lastIndex]?.classList.remove('active');
+    navIcons[index]?.classList.add('active');
     lastIndex = index;
   }
 }
 
 window.addEventListener('scroll', () => {
-  requestAnimationFrame(updateActiveIcon);
+  requestAnimationFrame(() => {
+    updateActiveIcon();
+  });
 });
-updateActiveIcon();
 
+updateActiveIcon();
 
 
 /* Type Effect */
@@ -43,3 +69,12 @@ var options = {
 };
 
 var typed = new Typed("#typed-output", options);
+
+/* Exit Button */
+
+const exitButton = document.querySelector('.bottom-icons .nav-icon');
+
+exitButton.addEventListener('click', () => {
+  window.location.href = 'https://github.com/pravinireri';
+});
+
