@@ -78,3 +78,25 @@ exitButton.addEventListener('click', () => {
   window.location.href = 'https://github.com/pravinireri';
 });
 
+/* Smooth Scrolling */
+const links = document.querySelectorAll('.sidebar a');
+
+links.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    navIcons.forEach(icon => icon.classList.remove('active'));
+
+    const clickedIcon = link.closest('.nav-icon');
+    clickedIcon.classList.add('active');
+
+    const targetId = link.getAttribute('href'); 
+    const targetSection = document.querySelector(targetId); 
+
+    window.scrollTo({
+      top: targetSection.offsetTop - 20,
+      behavior: 'smooth'
+    });
+  });
+});
+
