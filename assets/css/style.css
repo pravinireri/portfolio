@@ -34,9 +34,12 @@ a {
     padding-top: 20px;
   }
   
-  .sidebar .icon {
+/* SIDEBAR */
+.sidebar .icon {
+    position: relative;
     width: 40px;
     height: 40px;
+    font-size: 1.4rem;
     margin: 20px 0;
     display: flex;
     align-items: center;
@@ -44,13 +47,32 @@ a {
     border-radius: 50%;
     color: #fff;
     background-color: transparent;
-    transition: background-color 0.3s;
+    transition: color 0.3s;
+  }
+  
+  .sidebar .icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+  
+  .sidebar .icon.active::after {
+    transform: translate(-50%, -50%) scale(1);
   }
   
   .sidebar .icon.active {
-    background-color: #fff;
     color: #000;
+    transform: scale(1.2); 
   }
+  
 
   /* CONTENT */
   
