@@ -19,7 +19,7 @@ const WorkSection = () => {
     {
       company: "Nest Friends",
       role: "Engineering Lead",
-      period: "2025 — present",
+      period: "2026 — present",
       problem: "scaling a social platform backend without the usual chaos.",
       approach: "keep the architecture boring. mongodb, nodejs, typescript. no microservices until absolutely necessary.",
       impact: "system handles 10x traffic with the same team size. deploys are uneventful (the best kind).",
