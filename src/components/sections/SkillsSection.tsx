@@ -102,10 +102,6 @@ const SkillsSection = () => {
             </div>
           ))}
         </div>
-
-        <p className="text-small text-text-whisper mt-8 font-mono">
-          dashed = actively learning • solid = comfortable
-        </p>
       </div>
     </section>
   );

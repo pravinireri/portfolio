@@ -8,7 +8,7 @@ const FooterSection = () => {
     { 
       id: "email", 
       label: "email", 
-      href: "mailto:hello@pravinireri.com", 
+      href: "mailto:pkireri@gmail.com", 
       icon: Mail,
       hint: "best way to reach me"
     },
@@ -22,7 +22,7 @@ const FooterSection = () => {
     { 
       id: "linkedin", 
       label: "linkedin", 
-      href: "https://linkedin.com/in/pravinireri", 
+      href: "https://linkedin.com/in/pravin-ireri", 
       icon: Linkedin,
       hint: "the formal stuff"
     },
@@ -90,13 +90,10 @@ const FooterSection = () => {
             <p className="text-small text-text-quiet">
               pravin ireri
             </p>
-            <p className="text-caption text-text-whisper font-mono">
-              this site is a system, not a portfolio.
-            </p>
           </div>
           
           <p className="text-caption text-text-whisper font-mono">
-            built with intention. updated occasionally.
+            updated occasionally.
           </p>
         </div>
       </div>
