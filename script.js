@@ -1,6 +1,4 @@
-// Pravin Ireri Portfolio - Vanilla JavaScript
 
-// Navigation functionality
 function initNavigation() {
   const nav = document.getElementById('navigation');
   const navBtns = document.querySelectorAll('.nav-btn');
@@ -10,7 +8,6 @@ function initNavigation() {
   let activeSection = '';
 
   function handleScroll() {
-    // Update nav opacity based on scroll
     const scrollY = window.scrollY;
     const newIsScrolled = scrollY > 100;
     
@@ -19,7 +16,6 @@ function initNavigation() {
       nav.style.opacity = isScrolled ? '1' : '0.6';
     }
     
-    // Find active section
     const scrollPosition = scrollY + 200;
     
     for (let i = sections.length - 1; i >= 0; i--) {
@@ -53,21 +49,17 @@ function initNavigation() {
     }
   }
 
-  // Add click handlers
   navBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       scrollToSection(btn.dataset.section);
     });
   });
 
-  // Add scroll listener
   window.addEventListener('scroll', handleScroll, { passive: true });
   
-  // Initial check
   handleScroll();
 }
 
-// Now section hover functionality
 function initNowSection() {
   const nowItems = document.querySelectorAll('.now-item');
   
@@ -86,12 +78,10 @@ function initNowSection() {
   });
 }
 
-// Work section accordion functionality (single-selection)
 function initWorkAccordion() {
   const workItems = document.querySelectorAll('.work-item');
   let expandedIndex = 0; // First item expanded by default
   
-  // Set initial state
   workItems.forEach((item, index) => {
     const content = item.querySelector('.work-content');
     const chevron = item.querySelector('.work-chevron');
@@ -120,7 +110,6 @@ function initWorkAccordion() {
       const isExpanded = item.dataset.expanded === 'true';
       
       if (isExpanded) {
-        // Collapse current item
         expandedIndex = null;
         item.dataset.expanded = 'false';
         item.style.backgroundColor = 'transparent';
@@ -128,7 +117,6 @@ function initWorkAccordion() {
         content.style.opacity = '0';
         chevron.style.transform = 'rotate(0deg)';
       } else {
-        // Collapse all items
         workItems.forEach((otherItem) => {
           const otherContent = otherItem.querySelector('.work-content');
           const otherChevron = otherItem.querySelector('.work-chevron');
@@ -139,7 +127,6 @@ function initWorkAccordion() {
           otherChevron.style.transform = 'rotate(0deg)';
         });
         
-        // Expand clicked item
         expandedIndex = index;
         item.dataset.expanded = 'true';
         item.style.backgroundColor = 'hsl(var(--surface-subtle))';
@@ -151,14 +138,12 @@ function initWorkAccordion() {
   });
 }
 
-// Systems/Philosophy tab functionality
 function initPhilosophyTabs() {
   const buttons = document.querySelectorAll('.philosophy-btn');
   const panels = document.querySelectorAll('.philosophy-panel');
   
   buttons.forEach((button, index) => {
     button.addEventListener('click', () => {
-      // Remove active from all
       buttons.forEach(btn => {
         btn.classList.remove('active');
         btn.classList.remove('bg-[hsl(var(--foreground))]');
@@ -170,7 +155,6 @@ function initPhilosophyTabs() {
         panel.classList.add('hidden');
       });
       
-      // Add active to clicked
       button.classList.add('active');
       button.classList.add('bg-[hsl(var(--foreground))]');
       button.classList.add('text-[hsl(var(--background))]');
@@ -181,7 +165,6 @@ function initPhilosophyTabs() {
   });
 }
 
-// Log section hover functionality
 function initLogSection() {
   const logEntries = document.querySelectorAll('.log-entry');
   
@@ -213,7 +196,6 @@ function initLogSection() {
   });
 }
 
-// Skills filter functionality
 function initSkillsFilter() {
   const filters = document.querySelectorAll('.skill-filter');
   const skillTags = document.querySelectorAll('.skill-tag');
@@ -222,7 +204,6 @@ function initSkillsFilter() {
     filter.addEventListener('click', () => {
       const category = filter.dataset.category;
       
-      // Update active filter
       filters.forEach(f => {
         f.classList.remove('active');
         f.classList.remove('bg-[hsl(var(--foreground))]');
@@ -238,7 +219,6 @@ function initSkillsFilter() {
       filter.classList.remove('border');
       filter.classList.remove('border-[hsl(var(--border))]');
       
-      // Filter skills
       skillTags.forEach(tag => {
         if (category === 'all' || tag.dataset.category === category) {
           tag.style.display = 'inline-block';
@@ -249,7 +229,6 @@ function initSkillsFilter() {
     });
   });
   
-  // Tooltip functionality
   skillTags.forEach(tag => {
     let tooltip = null;
     
@@ -276,7 +255,6 @@ function initSkillsFilter() {
   });
 }
 
-// Initialize all functionality when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initNowSection();
@@ -285,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initLogSection();
   initSkillsFilter();
   
-  // Trigger initial animations
   setTimeout(() => {
     document.body.classList.add('loaded');
   }, 100);
